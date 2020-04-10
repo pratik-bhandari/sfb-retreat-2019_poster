@@ -1,0 +1,29 @@
+
+
+Human brain is a prediction generating machine.  (Friston,
+2005; Clark, 2013)
+I
+Language comprehension is considered to be largely
+predictive in nature.  (Pickering and Gambi, 2018; Lupyan
+and Clark, 2015; Jaeger and Kuperberg, 2016
+I
+Spoken language comprehension depends not only on
+contextual prediction but also the processing of auditory
+signal.
+I
+The interaction of prediction and auditory perception differs
+between younger adults(YA) and older adults(OA) when the
+auditory stimuli are ’noisy’ even when controlled for hearing
+loss.  (cite)
+I
+Spoken language comprehension in a challenging
+environment is difficult for older adults compared to younger
+adults.  (Schneider, Daneman, Pichora-Fuller, 2002)
+I
+In a noisy environment, older adults are benefited to a
+greater extent than the younger adults by the context
+(Sheldon, Pichora-Fuller, Schneider, 2007; Schneider,
+Pichora-Fuller, 2000; Wingfield, Tun, 2007).
+
+
+Fig.4: Participants' response accuracy across the no. of bands of noise vocoding\textit{(A)} and across predictability\textit{(B)

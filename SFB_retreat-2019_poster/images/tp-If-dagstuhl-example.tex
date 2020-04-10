@@ -1,0 +1,63 @@
+        \textbf{Text Plan}
+        
+        \begin{small}
+          \begin{tikzpicture}[level distance=5em,
+                              sibling distance=1em, 
+                              edge from parent path={(\tikzparentnode) -- (\tikzchildnode)}]%,
+%                          edge from parent/.append style={->, >=stealth, scale=30}]
+\Tree [.\node{contrast}; %[fill=black!20]
+        \edge node[above left, near start, sloped] {Arg};
+        [.assert\_food\_quality
+          \edge node[auto=right, near start, sloped] {Arg0};
+          [.\node[fill=ub2!20]{Caffe Buon Gusto};  ] 
+          \edge node[auto=left, near start, sloped] {Arg1};
+          [.\node[fill=sg3!20]{good}; ]
+        ]
+        \edge node[auto=left, near start, sloped] {Arg};
+        [.assert\_food\_quality
+          \edge node[auto=right, near start, sloped] {Arg0};
+          [.\node[fill=brickred!20]{John's Pizzeria};  ] 
+          \edge node[auto=left, near start, sloped] {Arg1};
+          [.{very good} ]
+        ] 
+      ]
+      \end{tikzpicture}
+      \end{small}
+      
+        \textbf{Logical Form}
+        
+              \begin{small}
+      \begin{tikzpicture}[level distance=5em,
+                          sibling distance=1em, 
+                          edge from parent path={(\tikzparentnode) -- (\tikzchildnode)}]
+\Tree [.\node{have}; % [fill=black!20]
+        \edge node[above left, near start, sloped] {Arg0};
+        [.\node [fill=ub2!20] {Caffe Buon Gusto}; ] 
+        \edge node[above left, near start, sloped] {Arg1};
+        [.quality 
+          \edge node[above left, near start, sloped] {Mod};
+          [.\node[fill=sg3!20]{good}; ]
+          \edge node[above right, near start, sloped] {Mod};
+          [.food ]
+        ]
+        \edge node[above right, near start, sloped] {Mod};
+        [.\node[yshift=3em]{while};
+          \edge node[left] {Arg1};
+          [.\node[yshift=5em]{have};
+            \edge node[above left, near start, sloped] {Arg0};
+            [.\node[yshift=5em, fill=brickred!20]{John's Pizzeria}; ] 
+            \edge node[above right, near start, sloped] {Arg1};
+            [.\node[yshift=5em]{quality}; 
+              \edge node[above left, near start, sloped] {Mod};
+              [.\node[yshift=6em]{good}; 
+                \edge node[left] {Mod};
+                [.\node[yshift=8em]{very}; ]
+              ]
+              \edge node[above right, near start, sloped] {Mod};
+              [.\node[yshift=6em]{food}; ]
+            ]
+          ]
+        ]
+      ]
+      \end{tikzpicture}
+      \end{small}

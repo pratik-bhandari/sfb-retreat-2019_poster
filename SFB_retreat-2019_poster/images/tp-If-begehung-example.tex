@@ -1,0 +1,95 @@
+\textbf{Text Plan}
+
+\begin{small}
+  \begin{tikzpicture}[level distance=5em,
+                      sibling distance=1em, 
+                      edge from parent path={(\tikzparentnode) -> (\tikzchildnode)}]%,
+%                          edge from parent/.append style={->, >=stealth, scale=30}]
+
+\Tree [.\node{justify-sn}; %[fill=black!20]
+        \edge node[above left, near start, sloped] {Arg0};
+        [.infer
+          \edge node[auto=right, near start, sloped] {Arg0};
+          [.service 
+            \edge node[auto=right, near start, sloped] {Arg0};
+            [.\node[fill=brickred!20]{Caffe\_Cielo};  ] 
+            \edge node[auto=left, near start, sloped] {Arg1};
+            [.\node[fill=sfbgreen!20]{good}; ]
+          ] 
+          \edge node[left] {Arg1};
+          [.decor 
+            \edge node[auto=right, near start, sloped] {Arg0};
+            [.\node[fill=brickred!20]{Caffe\_Cielo};  ] 
+            \edge node[auto=left, near start, sloped] {Arg1};
+            [.\node[fill=sfbgreen!20]{good}; ]
+          ]
+          \edge node[auto=left, near start, sloped] {Arg2};
+          [.cuisine 
+            \edge node[auto=right, near start, sloped] {Arg0};
+            [.\node[fill=brickred!20]{Caffe\_Cielo};  ] 
+            \edge node[auto=left, near start, sloped] {Arg1};
+            [.\node[fill=sfbgreen!20]{Italian}; ]
+          ]
+        ]
+        \edge node[auto=left, near start, sloped] {Arg1};
+        [.quality
+          \edge node[auto=right, near start, sloped] {Arg0};
+          [.\node[fill=brickred!20]{Caffe\_Cielo};  ] 
+          \edge node[auto=left, near start, sloped] {Arg1};
+          [.\node[fill=sfbgreen!20]{best}; ]
+        ] 
+      ]
+  \end{tikzpicture}
+\end{small}
+      
+\textbf{Logical Form}
+
+\begin{small}
+  \begin{tikzpicture}[level distance=5em,
+                      sibling distance=1em, 
+                      edge from parent path={(\tikzparentnode) -- (\tikzchildnode)}]
+\Tree [.\node{have}; % [fill=black!20]
+        \edge node[above left, near start, sloped] {Mod};
+        [.because ] 
+        \edge node[above left, near start, sloped] {Arg0};
+        [.\node [fill=brickred!20] {Caffe\_Cielo}; ] 
+        \edge node[above, sloped] {Arg1};
+        [.service 
+          \edge node[above left, near start, sloped] {Mod};
+          [.good ]
+          \edge node[above right, near start, sloped] {Mod};
+          [.with 
+            \edge node[left] {Arg1};
+            [.decor 
+              \edge node[left] {Mod};
+              [.good ]
+            ]
+          ]
+        ]
+        \edge node[above, sloped] {GenRel};
+        [.best 
+          \edge node[above left, near start, sloped] {Arg0};
+          [.it ]
+          \edge node[above right, near start, sloped] {Arg1};
+          [.quality 
+            \edge node[left] {Det};
+            [.the ]
+            \edge node[left] {Mod};
+            [.best ]
+            \edge node[left] {Mod};
+            [.overall ]
+            \edge node[left] {Mod};
+            [.among 
+              \edge node[left] {Arg1};
+              [.restaurant 
+                \edge node[left] {Det};
+                [.the ]
+                \edge node[left] {Mod};
+                [.selected ]
+              ]
+            ]
+          ]
+        ]
+      ]
+  \end{tikzpicture}
+\end{small}

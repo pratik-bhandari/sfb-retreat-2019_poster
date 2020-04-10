@@ -1,0 +1,303 @@
+\documentclass[final,12pt]{beamer}
+
+% Setup beamerposter
+\usepackage[orientation=portrait,size=a0,scale=1.75]{beamerposter} 
+\usetheme{sfb1102}
+
+% Import packages
+% For image imports:
+\usepackage{graphicx}
+% For colored boxes, text, etc:
+\usepackage{xcolor}
+% Use ACL-style references:
+\usepackage{acl-style-refs}
+\usepackage{linegoal}
+
+\usepackage{tikz}
+\usepackage{tikz-qtree}
+\usepackage{mathtools}
+% Load settings and macros for the SFB poster
+\usepackage{sfb-poster}
+\usepackage{relsize}
+\usepackage{framed}
+\usepackage{tipa}
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage{boxhandler}
+\usepackage{svg}
+ 
+
+% Fix for scaling IPA fonts
+\DeclareFontFamily{T3}{cmss}{}
+\DeclareFontShape{T3}{cmss}{m}{n}{%
+  <-8.5> tipass8
+  <8.5-9.5> tipass9
+  <9.5-11> tipass10
+  <11-15> tipass12
+  <15-> tipass17
+}{}
+\DeclareFontShape{T3}{cmss}{bx}{n}{%
+  <-> tipasb10
+}{}
+\DeclareFontShape{T3}{cmss}{m}{sl}{%
+  <-> tipasi10
+}{}
+\DeclareFontShape{T3}{cmss}{m}{it}{%
+  <-> sub * cmss/m/sl
+}{}
+
+
+
+% Macros for comments
+% Inspired by Joerg Hoffman and Alvaro Torralba
+\newcommand{\jutta}[1]{~\textbf{\footnotesize \color{blue} (Jutta: #1) }}
+\newcommand{\vera}[1]{~\textbf{\footnotesize \color{green} (Vera: #1) }}
+\newcommand{\dietrich}[1]{~\textbf{\footnotesize \color{red} (Dietrich: #1) }}
+
+
+%-----------------------------------------------------------
+% Name and authors of poster/paper/research
+%-----------------------------------------------------------
+\title{The role of predictability in comprehension of degraded speech}
+
+% \author{Pratik Bhandari $^{1,2}$ , Vera Demberg $^{2,3}$ , Jutta Kray $^{1,2}$ } % Author(s)
+\author{ Pratik Bhandari %Author(s)
+        \\
+		{\normalsize \textbf{PIs}: Vera Demberg,
+		Jutta Kray,
+		Dietrich Klakow
+		}}
+
+% The full institutional affiliation appears at the bottom left corner of the poster
+\institute[UdS]{UdS, SFB 1102}
+
+% Appears centered at bottom of the poster
+\footer{SFB Retreat 2019}
+
+% The date appears at the bottom right of the poster
+\date{4 July 2019}
+
+%-----------------------------------------------------------
+% Initiate poster
+%-----------------------------------------------------------
+%  
+\begin{document}
+\begin{frame}[t]
+
+\vspace{0.1em}
+
+% \begin{description}
+%   \item \tiny {1. Department of Psychology, Saarland University, Germany.
+%             2. Department of Language Science and Technology, Saarland University, Germany.
+%             3. Department of Computer Science, Saarland University, Germany}
+%   \centering
+%   \centering
+% \end{description}
+
+% \begin{columns}[t]    
+%   \begin{column}{\halfpagecol}
+%   \vspace{-1em}
+
+% -------------------------------------------------------------
+% INTRODUCTION BLOCK
+% -------------------------------------------------------------
+\begin{columns}[t]
+\column{0.49\linewidth}
+
+\begin{block}{Introduction}
+    \vspace{-2.3cm}
+    \vspace{1.2em}
+    \begin{itemize}
+    
+        \item {Spoken language comprehension depends on contextual prediction and auditory signal processing.}
+            \vspace{0.3em}
+        \item {In a noisy environment, comprehension is difficult for older adults compared to younger adults.}
+            \vspace{0.3em}
+        \item {Older adults take `advantage' of prediction more than younger adults.}
+        
+    \end{itemize}
+\end{block}
+
+% -------------------------------------------------------------
+% RESEARCH GOALS BLOCK
+% -------------------------------------------------------------
+\column{0.49\linewidth}
+\begin{block}{Research Goals}
+    \vspace{-2.3cm}
+    \vspace{1.2em}
+    \begin{itemize}
+        \item {Conceptual replication of prior behavioral studies}
+            \begin{itemize}
+                \item[\tiny{*}] age differences in auditory processing and predictive processing for comprehension of acoustically degraded speech
+                % \item[\tiny{*}] older adults are better than younger adults at using semantic context for language comprehension
+            \end{itemize}
+         \vspace{0.3em}
+        % \item {To validate sentence predictability and `noise' (i.e. controlled acoustic degradation): \textit{for next ERP study}}
+        \item {Validation of sentence predictability and `noise' (i.e. controlled acoustic degradation): \textit{for next ERP study}}
+    \end{itemize}
+\end{block}
+\end{columns}
+    
+% -------------------------------------------------------------
+% EXPERIMENTAL DESIGN BLOCK
+% -------------------------------------------------------------
+% \vspace{2.0em}
+\begin{block}{Experimental Design}
+%==========================================================
+% Figure (within the 'Experimental design block'
+%==========================================================
+            \vspace{-1.0em}
+      \begin{figure}
+        \centering
+        % \fbox{
+        \includesvg[width=0.9\textwidth]{trial-seq.svg}
+        % \includegraphics[scale=0.9]{trial-sequence2.png}
+            \vspace{-1.8em}
+        \caption{A sample trial sequence.}
+      \end{figure}
+\end{block}
+
+\vspace{-1em}
+% ------------------------------------------------------------
+% TWO COLUMNS FOR METHODS, PLOTS AND Misc.
+% ------------------------------------------------------------
+\begin{columns}[t]
+
+% ------------------------------------------------------------
+% PLOTS and FIGURES
+% ------------------------------------------------------------
+\column{0.49\linewidth}
+
+\begin{block}{Pattern of Data}
+    \vspace{0.49em}    
+        \begin{figure}
+            \centering
+            \fbox{
+            % \includegraphics[scale=0.2]{acc-by-cloze.jpg}}
+            \includegraphics[width=0.9\textwidth]{acc-by-cloze.jpg}}
+            \vspace{-0.45em}
+            \caption {Response accuracy across different levels of sentence predictability.}
+        \vspace{-0.5em}
+        \end{figure}
+    % -----------------------------------    
+                        \vspace{0.8em}
+        
+        \begin{figure}
+            \centering
+            \fbox{
+            \includegraphics[width=0.9\textwidth]{acc-by-noise.jpg}}
+            \vspace{-0.45em}
+            \caption {Response accuracy across different levels of acoustic degradation.}
+        \vspace{-0.5em}
+        \end{figure}        
+
+\end{block}
+
+
+% ------------------------------------------------------------
+% METHODS BLOCK
+% ------------------------------------------------------------
+\column{0.49\linewidth}
+\begin{block}{Methods}
+            \begin{greenbox}{Participants}
+                \begin{columns}
+                    \begin{column}{.48\linewidth}
+                        \begin{itemize}
+                            \item Younger adults
+                                \begin{itemize}
+                                    \item [\tiny{*}] \small n=9 (5 female) 
+                                    \item[\tiny{*}] \small Age range=19-24 years  
+                                \end{itemize}
+                        \end{itemize}
+                    \end{column}
+                    
+                    \begin{column}{.48\linewidth}
+                        \begin{itemize}
+                            \item Older adults
+                                \begin{itemize}
+                                    \item[\tiny{*}] \small n=11 (6 female)
+                                    \tiny{discarded(n$_{d}$)=4}
+                                    \item[\tiny{*}] \small Age range=74-80 years
+                                \end{itemize}
+                        \end{itemize}
+                    \end{column}
+             
+                \end{columns}                
+            \end{greenbox}
+        % ----------------------------------- 
+        \vspace{0.3em}
+            \begin{greenbox}{Stimuli}
+                \begin{columns}
+                    \begin{column}{.48\linewidth}
+                     \small {120 sentences
+                        \begin{itemize}
+                            \item Three levels of predictability
+                                \begin{itemize}
+                                    \item[\tiny{*}]Low, mid, high
+                                \end{itemize}
+                            \item Four levels of noise vocoding:
+                                \begin{itemize}
+                                    \item[\tiny{*}]1-, 4-, 6- and 8-bands
+                                    \end{itemize}
+                        \end{itemize}}                    
+                    \end{column}
+                        
+                    \begin{column}{.48\linewidth}
+                     \small{ Sample sentences
+                        \begin{itemize}
+                            \item [\tiny{*}] Low: \textit{Sie vergleicht das Gewicht.}
+                            \item [\tiny{*}] Mid: \textit{Sie sch{\"a}tzt das Gewicht.}
+                            \item [\tiny{*}] High: \textit{Sie stemmt das Gewicht.}
+                        \end{itemize}}                        
+                    \end{column}
+                \end{columns}            
+            \end{greenbox}
+        % -----------------------------------  
+        \vspace{0.3em}
+            \begin{greenbox}{Control Variables}
+                \begin{columns}
+                    \begin{column}{.48\linewidth}
+                    \small{Measure of:
+                        \begin{itemize}
+                            \item[\tiny{*}] Working memory
+                            \item[\tiny{*}] Processing speed
+                        \end{itemize}}
+                    \end{column}
+              
+                    \begin{column}{.48\linewidth}
+                        \begin{itemize}
+                                \item[\tiny{*}] \small{Verbal knowledge}
+                                \item[\tiny{*}] \small{Hearing threshold}
+                        \end{itemize}
+                    \end{column}
+                    
+                \end{columns}
+            \end{greenbox}
+        
+\end{block}
+
+
+% ------------------------------------------------------------
+% SUMMARY BLOCK
+% ------------------------------------------------------------
+\vspace{0.9em}
+
+\begin{block}{Summary}
+    \begin{description}
+        \item[\tiny{*}]Clear effect of predictability and acoustic degradation on comprehension accuracy.
+            \vspace{0.3em}
+        \item[\tiny{*}]High accuracy for \textit{high predictability} sentences.
+            \vspace{0.3em}
+        \item[\tiny{*}]Reduced accuracy with increased number of noise vocoding bands.
+        \item[\textit{\tiny{*}}] \textit{Accuracy is higher for younger adults than for older adults.}
+    \end{description}
+\end{block}
+
+% \bottomline 
+
+
+\end{columns} 
+
+\end{frame}
+
+\end{document}

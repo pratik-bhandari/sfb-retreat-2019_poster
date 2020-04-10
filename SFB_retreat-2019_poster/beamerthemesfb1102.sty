@@ -1,0 +1,404 @@
+% SFB 1102 Beamer Theme for Posters
+% By Ekaterina Kravtchenko, Alessandra Zarcone, and Dave Howcroft
+% Based on a0poster template by Olena Steshenko
+
+% tikz is used for defining our callout boxes
+\usepackage{tikz}
+
+% We define a beamertemplate for raised circle to correct the problem where
+% enumerated items appearing inside the circle environment end up below the 
+% line of text.
+
+\defbeamertemplate{enumerate item}{raisedcircle}
+{
+  \usebeamerfont*{item projected}%
+  \usebeamercolor[bg]{item projected}%
+  \begin{pgfpicture}{-1ex}{0ex}{1.5ex}{2ex}
+    \pgfpathcircle{\pgfpoint{0pt}{1.2ex}}{1.2ex}
+    \pgfusepath{fill}
+    \pgftext[at=\pgfpoint{0pt}{0.45ex},base]{\color{fg}\insertenumlabel}
+  \end{pgfpicture}%
+}
+[action]
+{\setbeamerfont{item projected}{size=\scriptsize}}
+
+\defbeamertemplate{enumerate subitem}{raisedcircle}
+{
+  \usebeamerfont*{subitem projected}%
+  \usebeamercolor[bg]{subitem projected}%
+  \begin{pgfpicture}{-1ex}{0ex}{1ex}{2ex}
+    \pgfpathraisedcircle{\pgfpoint{0pt}{1.2ex}}{1.2ex}
+    \pgfusepath{fill}
+    \pgftext[at=\pgfpoint{0pt}{0.45ex},base]{\color{fg}\insertsubenumlabel}
+  \end{pgfpicture}%
+}
+
+\defbeamertemplate{enumerate subsubitem}{raisedcircle}
+{
+  \usebeamerfont*{subsubitem projected}%
+  \usebeamercolor[bg]{subsubitem projected}%
+  \begin{pgfpicture}{-1ex}{0ex}{1ex}{2ex}
+    \pgfpathraisedcircle{\pgfpoint{0pt}{1.2ex}}{1.2ex}
+    \pgfusepath{fill}
+    \pgftext[at=\pgfpoint{0pt}{0.45ex},base]{\color{fg}\insertsubsubenumlabel}
+  \end{pgfpicture}%
+}
+
+\defbeamertemplate{enumerate mini template}{raisedcircle}
+{
+  \usebeamerfont*{\beameritemnestingprefix item projected}%
+  \usebeamercolor[bg]{\beameritemnestingprefix item projected}%
+  \begin{pgfpicture}{-1ex}{0ex}{1ex}{2ex}
+    \pgfpathraisedcircle{\pgfpoint{0pt}{1.2ex}}{1.2ex}
+    \pgfusepath{fill}
+    \pgftext[at=\pgfpoint{0pt}{0.45ex},base]{\color{fg}\insertenumlabel}
+  \end{pgfpicture}%
+}
+
+%==============================================================================
+% define colors
+%==============================================================================
+
+\definecolor{sfbgreen}{RGB}{61,144,28}
+\definecolor{uniblue}{RGB}{15,49,102}
+\definecolor{brickred}{RGB}{204,77,20}
+\definecolor{yellow}{RGB}{255,254,0}
+
+% Monochromatic Color Rule applied to uniblue
+% 1st is uniblue, then
+\definecolor{ub2}{RGB}{27,86,178}
+\definecolor{ub3}{RGB}{57,85,157}
+\definecolor{ub4}{RGB}{80,117,178}
+\definecolor{ub5}{RGB}{38,122,255}
+
+% Triad Color Rule applied to uniblue
+\definecolor{unibright}{RGB}{8,75,178}
+\definecolor{unired}{RGB}{115,39,28}
+\definecolor{unimoss}{RGB}{39,51,2}
+\definecolor{unigrass}{RGB}{138,178,17}
+
+% Monochromatic Color Rule applied to sfbgreen
+% 1st is sfbgreen, then
+\definecolor{sg2}{RGB}{93,220,43}
+\definecolor{sg3}{RGB}{104,162,80}
+\definecolor{sg4}{RGB}{141,220,109}
+\definecolor{sg5}{RGB}{39,93,18}
+
+%-----------------------------------------------------------
+% Assign beamer colors
+%-----------------------------------------------------------
+
+% set the basic colors
+% itemize, enumerate - shapes
+\setbeamertemplate{itemize items}{\small\raise0.15em\hbox{$\blacktriangleright$}}
+\setbeamertemplate{enumerate items}[raisedcircle]
+\setbeamerfont{item projected}{size=\scriptsize}
+
+% itemize, enumerate, description - colors
+\setbeamercolor{item}{fg=sfbgreen}
+\setbeamercolor{subitem}{fg=sfbgreen}
+\setbeamercolor{subsubitem}{fg=sfbgreen}
+\setbeamercolor{enumerate}{fg=sfbgreen}
+\setbeamercolor{description item}{fg=black}
+\setbeamertemplate{description item}{\hspace{0.5em}\textbf{\insertdescriptionitem}}
+\setlength{\leftmargini}{5em}
+
+% set colors for blocks
+\setbeamercolor{block title}{fg=white,bg=sfbgreen}
+\setbeamercolor{block body}{fg=black,bg=white}
+\setbeamerfont{block title}{series=\bfseries}
+
+\setbeamercolor{block alerted title}{fg=white,bg=brickred}
+\setbeamercolor{block alerted body}{fg=black,bg=brickred!10}
+
+\setbeamercolor{block example title}{fg=white,bg=uniblue}
+\setbeamercolor{block example body}{fg=black,bg=uniblue!10}
+
+% bibliography
+\setbeamertemplate{bibliography item}{}
+\setbeamercolor{bibliography item}{fg=sfbgreen}
+\usebibliographyblocktemplate{\color{black}}{\color{black}}{\color{black}}{\color{black}}
+
+% We don't want navigation for a poster!
+\beamertemplatenavigationsymbolsempty
+
+% Caption styles
+\setbeamertemplate{caption}{Fig.\ \insertcaptionnumber : \insertcaption}
+%\setbeamercolor{caption name}{fg=black}
+
+%==============================================================================
+% build the poster title
+%==============================================================================
+
+% TODO add condition for institute being undefined
+%   if no institute is defined, we don't want to add a linebreak at all
+\setbeamertemplate{headline}{
+   \vspace{0.2em}
+   \begin{columns}[c]
+    \begin{column}{\sepwid}\end{column}
+    \begin{column}{0.6\quarterpagecol}
+      \raisebox{-7em}{\parbox{\textwidth}{\includegraphics[width=0.8\textwidth]{images/logosfb.pdf}}}\hfill
+    \end{column}
+    \begin{column}{1.3\halfpagecol}
+      \vskip1cm
+      \centering
+      \usebeamercolor{title in headline}{\color{fg}\LARGE{\textbf{\setlength\lineskip{12pt}\inserttitle}}\\[0.5ex]}
+      \vspace{0.2em}
+      \usebeamercolor{author in headline}{\color{fg}\large{\insertauthor}\\[1ex]}
+    \end{column}
+    \begin{column}{0.6\quarterpagecol}
+      % Add the UDS logo in the top right corner
+      \vskip2em
+    %   \hfill\includegraphics[width=7cm]{images/uds-eule.pdf}
+      \hfill\includegraphics[scale=0.7]{images/logouds.pdf}
+    \end{column}
+    \begin{column}{\sepwid}\end{column}
+  \end{columns}
+  \vspace{-2em}
+}
+
+%==============================================================================
+% build the footline title
+%==============================================================================
+
+\setbeamertemplate{footline}{
+\vspace{0.4em}
+\begin{columns}[b]
+  % Left margin spacer column
+  \begin{column}{\sepwid}\end{column}
+
+  % I recommend using the bottom left of the poster to record the event title.
+  % This might seem superfluous, but remember that we often share PDFs of our
+  % posters on our personal websites.
+  \begin{column}{\onethirdpagecol}
+    \footnotesize\setlength\lineskip{6pt}\insertinstitute
+  \end{column}
+
+  \begin{column}{\sepwid}\end{column}
+
+  \begin{column}{\onethirdpagecol}
+    \centering
+    \footnotesize\insertfooter
+  \end{column}
+  
+  \begin{column}{\sepwid}\end{column}
+  
+	% We override the footer command in the style file and instead insert it here.
+  \begin{column}{\onethirdpagecol}
+    \hfill\footnotesize\insertdate
+  \end{column}
+
+  % Making sure there is space on the right side of the page
+  \begin{column}{\sepwid}\end{column}
+
+\end{columns}
+\vspace{1em}
+}
+
+\def\footer#1{\def\insertfooter{#1}}
+
+% Block definition
+\setbeamertemplate{block begin}
+{
+  \par\vskip\medskipamount
+  \begin{beamercolorbox}[colsep*=0ex,dp={1.5ex},center]{block title}
+    \vskip-0.25cm
+    \usebeamerfont{block title}\normalsize\insertblocktitle
+  \end{beamercolorbox}
+  {\parskip0pt\par}
+  \ifbeamercolorempty[bg]{block title}
+  {}
+  {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt }}
+  \usebeamerfont{block body}
+  \vskip0.3cm
+  \setlength{\parskip}{0em}
+  \begin{beamercolorbox}[colsep*=0ex,vmode, sep=0.5cm]{block body}
+  \vskip0.3cm
+}
+
+\setbeamertemplate{block end}
+{
+  \end{beamercolorbox}
+  \vskip0.3cm
+}
+
+% alert Block definition
+\setbeamertemplate{block alerted begin}
+{
+  \par\vskip\medskipamount
+  \begin{beamercolorbox}[colsep*=0ex,dp={1.5ex},center]{block alerted title}
+    \vskip-0.25cm
+    \usebeamerfont{block alerted title}\normalsize\insertblocktitle
+  \end{beamercolorbox}
+  {\parskip0pt\par}
+  \ifbeamercolorempty[bg]{block alerted title}
+  {}
+  {\ifbeamercolorempty[bg]{block alerted body}{}{\nointerlineskip\vskip-0.5pt }}
+  \usebeamerfont{block alerted body}
+  \vskip0.3cm
+  \begin{beamercolorbox}[colsep*=0ex,vmode,sep=0.5cm]{block alerted body}
+   \vskip0.3cm
+}
+
+\setbeamertemplate{block alerted end}
+{
+
+  \end{beamercolorbox}
+  \vskip0.3cm
+}
+
+% example Block definition
+\setbeamertemplate{block example begin}
+{
+  \par\vskip\medskipamount
+  \begin{beamercolorbox}[colsep*=0ex,dp={1.5ex},center]{block example title}
+    \vskip-0.25cm
+    \usebeamerfont{block example title}\normalsize\insertblocktitle
+  \end{beamercolorbox}
+  {\parskip0pt\par}
+  \ifbeamercolorempty[bg]{block example title}
+  {}
+  {\ifbeamercolorempty[bg]{block example body}{}{\nointerlineskip\vskip-0.5pt }}
+  \usebeamerfont{block example body}
+  \vskip0.3cm
+  \begin{beamercolorbox}[colsep*=0ex,vmode,sep=0.5cm]{block example body}
+   \vskip0.3cm
+}
+
+\setbeamertemplate{block example end}
+{
+
+  \end{beamercolorbox}
+  \vskip0.3cm
+}
+
+% Below we define the callout boxes in different colors
+
+% Define BLUEBOX
+
+% Define box and box title style
+\tikzstyle{bluebox} = [draw=black, fill=ub2!20, very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
+\tikzstyle{bluetitle} =[draw=black, fill=ub2, very thick, text=white]
+
+\newenvironment{bluebox}[1]
+% Begin new environment
+{
+\begin{center}
+\begin{tikzpicture}
+  \def\blueboxtitle{#1}
+  \node [bluebox] (box) \bgroup%
+    \begin{minipage}{0.95\textwidth}
+    \vspace{0.95cm}
+}{
+    \end{minipage}\egroup;
+  \node (titlenode) [bluetitle, right=10pt, rounded corners] at (box.north west) {\blueboxtitle};\end{tikzpicture}%
+\end{center}
+}
+
+% Define GREENBOX
+
+% Define box and box title style
+\tikzstyle{greenbox} = [draw=black, fill=sg3!20, very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
+\tikzstyle{greentitle} =[draw=black, fill=sg3, very thick, text=white]
+
+\newenvironment{greenbox}[1]
+% Begin new environment
+{
+\begin{center}
+\begin{tikzpicture}
+  \def\greenboxtitle{#1}
+  \node [greenbox] (box) \bgroup%
+    \begin{minipage}{0.95\textwidth}
+    \vspace{0.95cm}
+}{
+    \end{minipage}\egroup;
+  \node (titlenode) [greentitle, right=10pt, rounded corners] at (box.north west) {\greenboxtitle};
+\end{tikzpicture}
+\end{center}
+}
+
+% Define REDBOX
+
+% Define box and box title style
+\tikzstyle{redbox} = [draw=black, fill=brickred!20, very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
+\tikzstyle{redtitle} =[draw=black, fill=brickred, very thick, text=white]
+
+\newenvironment{redbox}[1]
+% Begin new environment
+{
+\begin{center}
+\begin{tikzpicture}
+  \def\redboxtitle{#1}
+  \node [redbox] (box) \bgroup%
+    \begin{minipage}{0.95\textwidth}
+    \vspace{0.95cm}
+}{
+    \end{minipage}\egroup;
+  \node (titlenode) [redtitle, right=10pt, rounded corners] at (box.north west) {\redboxtitle};
+\end{tikzpicture}
+\end{center}
+}
+
+% Define YELLOWBOX
+
+% Define box and box title style
+\tikzstyle{yellowbox} = [draw=black, fill=yellow!20, very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
+\tikzstyle{yellowtitle} =[draw=black, fill=yellow, very thick, text=black]
+
+\newenvironment{yellowbox}[1]
+% Begin new environment
+{
+\begin{center}
+\begin{tikzpicture}
+  \def\yellowboxtitle{#1}
+  \node [yellowbox] (box) \bgroup%
+    \begin{minipage}{0.95\textwidth}
+    \vspace{0.95cm}
+}{
+    \end{minipage}\egroup;
+  \node (titlenode) [yellowtitle, right=10pt, rounded corners] at (box.north west) {\yellowboxtitle};
+\end{tikzpicture}
+\end{center}
+}
+
+% Define Unlabelled box
+% Define box and box title style
+
+\newenvironment{nolabgreen}
+% Begin new environment
+{
+\begin{center}
+\begin{tikzpicture}
+  \node [greenbox] (box) \bgroup%
+    \begin{minipage}{0.95\textwidth}
+}{
+    \end{minipage}\egroup;
+\end{tikzpicture}
+\end{center}
+}
+
+% Define GREYBOX
+
+% Define box and box title style
+\tikzstyle{greybox} = [draw=black, fill=black!10, very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
+\tikzstyle{greytitle} =[draw=black, fill=black!50, very thick, text=white]
+
+\newenvironment{greybox}[1]
+% Begin new environment
+{
+\begin{center}
+\begin{tikzpicture}
+  \def\blueboxtitle{#1}
+  \node [greybox] (box) \bgroup%
+    \begin{minipage}{0.95\textwidth}
+    \vspace{0.95cm}
+}{
+    \end{minipage}\egroup;
+  \node (titlenode) [greytitle, right=10pt, rounded corners] at (box.north west) {\blueboxtitle};\end{tikzpicture}%
+\end{center}
+}

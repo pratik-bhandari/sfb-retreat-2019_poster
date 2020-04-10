@@ -1,0 +1,80 @@
+\setlength{\fboxsep}{0pt}
+\setlength{\fboxrule}{1pt}
+
+%-----------------------------------------------------------
+% Define the column width and poster size
+% To set effective sepwid, onecolwid and twocolwid values, 
+% first choose how many columns you want and how much 
+% separation you want between columns.
+% For example, you might choose a separation of 0.024 and
+% want to have 3 columns.
+% Then set onecolwid to be (1-(3+1)*0.024)/3 = 0.3013
+% Set twocolwid to be 2*onecolwid + sepwid = 0.6266
+%-----------------------------------------------------------
+
+
+% We define a bunch of new lengths for the columns
+\newlength{\sepwid}
+\newlength{\betweencolspace}
+\newlength{\fullpagecol}
+\newlength{\halfpagecol}
+\newlength{\quarterpagecol}
+\newlength{\onethirdcolwid}
+\newlength{\twothirdscolwid}
+\newlength{\fivethirdscolwid}
+\newlength{\onethirdpagecol}
+\newlength{\twothirdpagecol}
+\newlength{\threecolwid}
+
+% And we set their values
+% NB: They should not necessarily add up to 1 across the page.
+%     There is a little extra space such that if you make them sum to 1
+%     you'll end up with columns that are too wide.
+\setlength{\sepwid}{0.024\paperwidth}
+\setlength{\betweencolspace}{0.024\paperwidth}
+\setlength{\fullpagecol}{0.95\paperwidth}
+\setlength{\halfpagecol}{.464\paperwidth}
+\setlength{\quarterpagecol}{.232\paperwidth}
+\setlength{\onethirdpagecol}{0.29\paperwidth}
+\setlength{\twothirdpagecol}{0.60\paperwidth}
+% Not sure what the rest of these are for
+\setlength{\onethirdcolwid}{0.1\paperwidth}
+\setlength{\twothirdscolwid}{0.155\paperwidth}
+\setlength{\fivethirdscolwid}{0.5\paperwidth}
+
+
+% Define full-page column
+\newenvironment{fullwidth}[1]
+{
+\begin{columns}[t]
+
+  \begin{column}{\sepwid}\end{column}
+  
+  \begin{column}{0.95\paperwidth}
+    \begin{block}{#1}
+}
+{
+    \end{block}  
+  \end{column}
+  
+  \begin{column}{\sepwid}\end{column}
+\end{columns}
+}
+
+% Define half-page column
+\newenvironment{halfwidth}[1]
+{
+\begin{columns}[t]
+
+  \begin{column}{\sepwid}\end{column}
+  
+  \begin{column}{\halfpagecol}
+    \begin{block}{#1}
+}
+{
+    \end{block}  
+  \end{column}
+  
+  \begin{column}{\sepwid}\end{column}
+\end{columns}
+}
